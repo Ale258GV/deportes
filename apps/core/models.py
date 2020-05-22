@@ -9,5 +9,5 @@ Docente:
 """
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatares/')
-    descripcion = models.TextField()
+    avatar = models.ImageField(upload_to='avatares/', null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
