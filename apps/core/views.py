@@ -8,8 +8,14 @@ from django.contrib.auth import logout
 
 # Create your views here.
 def home_view(request):
+    #vista que muestra de talleres
     teams = Team.objects.all()
     return render(request, 'home.html', {'teams':teams})
+
+def panel_view(request):
+    #vista que muestra el panel de control
+    teams = Team.objects.all()
+    return render(request, 'panel.html', {'teams':teams})
 
 def login_view(request):
     if request.method == 'POST':
@@ -18,14 +24,14 @@ def login_view(request):
             login(request, user)
             return HttpResponse("Bienvenido")
         else:
-            return render(request, 'login.html', {'form':form})
+            return render(request, 'login.html', {'form':AuthenticationForm()})
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form':form})
 
 def logout_view(request):
     logout(request)
-    return HttpResponse("Hasta Luego :D")
+    return HttpResponse("login")
     
 def profile_view(request):
     return render(request, 'profile.html')
