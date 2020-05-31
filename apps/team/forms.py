@@ -15,3 +15,4 @@ class StudentForm(forms.ModelForm):
         widgets = {
             'team':forms.NumberInput(attrs={'hidden':True})
         }
+

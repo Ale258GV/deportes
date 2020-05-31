@@ -50,6 +50,7 @@ def team_details(request, team_id):
         return render(request, 'team_details.html', {'form':form, 'students':students, 'team':team})
     team = Team.objects.get(pk=team_id)
     students = Student.objects.filter(team_id = team_id)
-    form = StudentForm()
+    form = StudentForm(initial={'team':team_id})
     return render(request, 'team_details.html', {'form':form, 'students':students, 'team':team})
+
 
