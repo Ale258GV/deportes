@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 from apps.team.models import Team
 from django.contrib.auth.forms import AuthenticationForm

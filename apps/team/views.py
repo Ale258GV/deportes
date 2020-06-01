@@ -47,17 +47,17 @@ def team_details(request, team_id):
         if form.is_valid():
             form.save()
             return redirect('team_details', team_id)
-        team = get_object_or_404(team, pk=team_id)
+        team = get_object_or_404(Team, pk=team_id)
         students = Student.objects.filter(team_id = team_id)
         return render(request, 'team_details.html', {'form':form, 'students':students, 'team':team})
-    team = get_object_or_404(team, pk=team_id)
+    team = get_object_or_404(Team, pk=team_id)
     students = Student.objects.filter(team_id = team_id)
     form = StudentForm(initial={'team':team_id})
     return render(request, 'team_details.html', {'form':form, 'students':students, 'team':team})
 
 def edit_team(request, team_id):
     #team = Team.objects.get(pk=team_id)
-    team = get_object_or_404(team, pk=team_id)
+    team = get_object_or_404(Team, pk=team_id)
     if request.method == 'POST':
         form = TeamForm(request.POST, instance=team)
         if form.is_valid():
