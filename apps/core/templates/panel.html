@@ -8,10 +8,11 @@
         {% for team in teams%}
         <div class="col-sm-12 col-md-5 border mb-3 p-2">
             <h3>{{ team.sport}}</h3>
-            <label for="">Horario</label>
+            <label for=""><b>Horario</b></label>
             <span>{{ team.schedule}}</span>
-            <label for="">Docente:</label>
-            <span>{{ team.teacher}}</span>
+            <br>
+            <label for=""><b>Docente:</b></label>
+            <span><a href="{% url 'public_profile' team.teacher.id %}">{{ team.teacher }}</a></span>
             <br>
             <a href="{% url 'edit_team' team.pk %}" class="btn btn-outline-primary">Editar</a>
             <a href="{% url 'team_details' team.pk %}" class="btn btn-outline-primary">Registrar</a>

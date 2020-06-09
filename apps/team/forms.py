@@ -18,8 +18,6 @@ class StudentForm(forms.ModelForm):
 class TeamForm(forms.ModelForm):
     #Formulario para registrar alumnos
 
-
     class Meta:
         model = Team
         fields = '__all__'
-        exclude = ('liberado',)
